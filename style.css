@@ -10,10 +10,38 @@ body {
   padding-top: 30px;
 }
 
-.judul { font-size: 22pt; font-weight: bold; text-align: center; }
-.penulis { text-align: center; margin-bottom: 20px; }
-.abstrak, .isi, .pustaka, .rumus, .tabel { margin: 30px 0; }
-h2 { font-size: 16pt; margin-bottom: 10px; }
-img { max-width: 100%; margin: 10px 0; }
-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-table, th, td { border: 1px solid black; padding: 5px; }
+.judul {
+  font-size: 22pt;
+  font-weight: bold;
+  text-align: center;
+}
+
+.penulis {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.abstrak, .isi, .pustaka, .rumus, .tabel {
+  margin: 30px 0;
+}
+
+h2 {
+  font-size: 16pt;
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+  margin: 10px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
