@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Layout Naskah Jurnal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <h1>Form Input Naskah Jurnal</h1>
+  <form id="naskahForm">
+    <label>Judul Artikel:</label><br>
+    <input type="text" id="judul"><br><br>
+
+    <label>Nama Penulis & Afiliasi:</label><br>
+    <textarea id="penulis"></textarea><br><br>
+
+    <label>Email Korespondensi:</label><br>
+    <input type="email" id="email"><br><br>
+
+    <label>Abstrak:</label><br>
+    <textarea id="abstrak"></textarea><br><br>
+
+    <label>Kata Kunci:</label><br>
+    <input type="text" id="katakunci"><br><br>
+
+    <label>Isi Artikel (gunakan === antar bagian):</label><br>
+    <textarea id="isi" rows="10"></textarea><br><br>
+
+    <label>Rumus (LaTeX, pisahkan dengan ===):</label><br>
+    <textarea id="rumus"></textarea><br><br>
+
+    <label>Gambar (link, pisahkan dengan koma):</label><br>
+    <input type="text" id="gambar"><br><br>
+
+    <label>Tabel (HTML):</label><br>
+    <textarea id="tabel" rows="6"></textarea><br><br>
+
+    <label>Daftar Pustaka:</label><br>
+    <textarea id="pustaka" rows="6"></textarea><br><br>
+
+    <button type="button" onclick="generateLayout()">Tampilkan Layout</button>
+  </form>
+
+  <hr>
+  <div id="output"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
