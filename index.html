@@ -1,55 +1,65 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>Layout Naskah Jurnal</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="UTF-8">
+  <title>Input Naskah Jurnal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>Form Input Naskah Jurnal</h1>
-  <form id="naskahForm">
-    <label>Judul Artikel:</label><br>
-    <input type="text" id="judul"><br><br>
+  <form id="multiForm">
+    <!-- Step Indicators -->
+    <div class="steps">
+      <div class="step active">1. Info Umum</div>
+      <div class="step">2. Isi & Rumus</div>
+      <div class="step">3. Gambar & Tabel</div>
+      <div class="step">4. Pustaka</div>
+    </div>
 
-    <label>Nama Penulis & Afiliasi:</label><br>
-    <textarea id="penulis"></textarea><br><br>
+    <!-- Step 1 -->
+    <div class="form-step form-step-active">
+      <label>Judul Artikel</label>
+      <input type="text" id="judul">
+      <label>Nama Penulis & Afiliasi</label>
+      <textarea id="penulis"></textarea>
+      <label>Email Korespondensi</label>
+      <input type="email" id="email">
+    </div>
 
-    <label>Email Korespondensi:</label><br>
-    <input type="email" id="email"><br><br>
+    <!-- Step 2 -->
+    <div class="form-step">
+      <label>Abstrak</label>
+      <textarea id="abstrak"></textarea>
+      <label>Kata Kunci</label>
+      <input type="text" id="katakunci">
+      <label>Isi Artikel</label>
+      <textarea id="isi"></textarea>
+      <label>Rumus (LaTeX, === pemisah)</label>
+      <textarea id="rumus"></textarea>
+    </div>
 
-    <label>Abstrak:</label><br>
-    <textarea id="abstrak"></textarea><br><br>
+    <!-- Step 3 -->
+    <div class="form-step">
+      <label>Gambar (link, pisah koma)</label>
+      <input type="text" id="gambar">
+      <label>Tabel (HTML)</label>
+      <textarea id="tabel"></textarea>
+    </div>
 
-    <label>Kata Kunci:</label><br>
-    <input type="text" id="katakunci"><br><br>
+    <!-- Step 4 -->
+    <div class="form-step">
+      <label>Daftar Pustaka</label>
+      <textarea id="pustaka"></textarea>
+    </div>
 
-    <label>Isi Artikel (gunakan === antar bagian):</label><br>
-    <textarea id="isi" rows="10"></textarea><br><br>
-
-    <label>Rumus (LaTeX, pisahkan dengan ===):</label><br>
-    <textarea id="rumus"></textarea><br><br>
-
-    <label>Gambar (link, pisahkan dengan koma):</label><br>
-    <input type="text" id="gambar"><br><br>
-
-    <label>Tabel (HTML):</label><br>
-    <textarea id="tabel" rows="6"></textarea><br><br>
-
-    <label>Daftar Pustaka:</label><br>
-    <textarea id="pustaka" rows="6"></textarea><br><br>
-
-    <button type="button" onclick="generateLayout()">Tampilkan Layout</button>
+    <div class="btns">
+      <button type="button" id="prevBtn">Previous</button>
+      <button type="button" id="nextBtn">Next</button>
+      <button type="button" id="submitBtn">Tampilkan Layout</button>
+    </div>
   </form>
 
   <hr>
   <div id="output"></div>
-
-  <script src="script.js"></script>
-  <button type="button" onclick="simpanKeGitHub()">Simpan ke GitHub</button>
-<script src="simpan.js"></script>
 </body>
 </html>
-
