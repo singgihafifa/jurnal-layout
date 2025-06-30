@@ -8,7 +8,7 @@ async function simpanKeGitHub() {
       method: "POST",
       headers: {
         Accept: "application/vnd.github+json",
-        Authorization: "Bearer GITHUB_PAT_ANDA",
+        Authorization: "Bearer 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",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
