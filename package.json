@@ -1,0 +1,6 @@
+{
+  "name": "jurnal-layout-web",
+  "dependencies": {
+    "@octokit/core": "^4.0.0"
+  }
+}
