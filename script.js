@@ -1,36 +1,20 @@
-function generateLayout() {
-  const judul = document.getElementById("judul").value;
-  const penulis = document.getElementById("penulis").value;
-  const email = document.getElementById("email").value;
-  const abstrak = document.getElementById("abstrak").value;
-  const katakunci = document.getElementById("katakunci").value;
-  const isi = document.getElementById("isi").value;
-  const rumus = document.getElementById("rumus").value;
-  const gambar = document.getElementById("gambar").value;
-  const tabel = document.getElementById("tabel").value;
-  const pustaka = document.getElementById("pustaka").value;
+document.addEventListener('DOMContentLoaded', () => {
+  const steps = Array.from(document.querySelectorAll('.form-step'));
+  let current = 0;
 
-  const isiSplit = isi.split("===").map((section, i) =>
-    `<h2>Bagian ${i + 1}</h2><p>${section.trim().replace(/\n/g, "<br>")}</p>`).join("");
+  const showStep = i => {
+    steps.forEach((s, k) => {
+      s.classList.toggle('form-step-active', k === i);
+      document.querySelectorAll('.step')[k].classList.toggle('active', k === i);
+    });
+    document.getElementById('prevBtn').style.display = i === 0 ? 'none' : 'inline-block';
+    document.getElementById('nextBtn').style.display = i === steps.length - 1 ? 'none' : 'inline-block';
+    document.getElementById('submitBtn').style.display = i === steps.length - 1 ? 'inline-block' : 'none';
+  };
 
-  const rumusSplit = rumus.split("===").map(r =>
-    `<p>\\[ ${r.trim()} \\]</p>`).join("");
+  document.getElementById('prevBtn').onclick = () => { if (current > 0) current--; showStep(current); };
+  document.getElementById('nextBtn').onclick = () => { if (current < steps.length - 1) current++; showStep(current); };
+  document.getElementById('submitBtn').onclick = () => generateLayout(); // tetap pakai fungsi generate
 
-  const gambarSplit = gambar.split(",").map((src, i) =>
-    `<img src="${src.trim()}" alt="Gambar ${i + 1}">`).join("");
-
-  const outputHTML = `
-    <div class="judul">${judul}</div>
-    <div class="penulis">${penulis}<br><i>${email}</i></div>
-    <div class="abstrak"><h2>Abstrak</h2><p>${abstrak.replace(/\n/g, "<br>")}</p></div>
-    <div><strong>Kata Kunci:</strong> ${katakunci}</div>
-    <div class="isi">${isiSplit}</div>
-    <div class="rumus"><h2>Rumus</h2>${rumusSplit}</div>
-    <div>${gambarSplit}</div>
-    <div class="tabel"><h2>Tabel</h2>${tabel}</div>
-    <div class="pustaka"><h2>Daftar Pustaka</h2><p>${pustaka.replace(/\n/g, "<br>")}</p></div>
-  `;
-
-  document.getElementById("output").innerHTML = outputHTML;
-  if (window.MathJax) MathJax.typesetPromise();
-}
+  showStep(current);
+});
